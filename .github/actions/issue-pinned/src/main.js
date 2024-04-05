@@ -1,6 +1,6 @@
 const CORE = require('@actions/core')
 const GITHUB = require('@actions/github')
-const { GraphQLClient } = require('graphql-request')
+const { GRAPHQL } = require('graphql-request')
 
 /**
  * The main function for the issue-pinned.
@@ -14,7 +14,7 @@ async function run() {
     const GHTOKEN = CORE.getInput('GHTOKEN', { required: true })
     console.log(`Token: ${GHTOKEN}`)
     const commentBody = 'This is the new comment'
-    const client = new GraphQLClient('https://api.github.com/graphql', {
+    const client = new GRAPHQL('https://api.github.com/graphql', {
       headers: { Authorization: `Bearer ${GHTOKEN}` }
     })
 
