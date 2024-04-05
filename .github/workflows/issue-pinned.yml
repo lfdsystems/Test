@@ -1,0 +1,22 @@
+name: Issue Pinned
+
+on:
+  issues:
+    types:
+      - pinned
+
+jobs:
+  issue-pinned:
+    name: Issue Pinned
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        id: checkout-repository
+        uses: actions/checkout@main
+
+      - name: Unpin the Issue
+        id: unpin-issue
+        if: steps.checkout-repository.outcome == 'success'
+        uses: ./.github/actions/issue-pinned
+        with:
+          GHTOKEN: $ {{ secrets.GITHUB_TOKEN }}

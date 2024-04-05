@@ -1,0 +1,14 @@
+name: Hello, World!
+description: Greet someone and record the time
+author: GitHub Actions
+
+# Define your inputs here.
+inputs:
+  GHTOKEN:
+    description: Who to greet
+    required: true
+    default: ${{ github.token }}
+
+runs:
+  using: node20
+  main: dist/index.js
