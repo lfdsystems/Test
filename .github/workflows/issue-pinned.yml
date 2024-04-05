@@ -22,4 +22,4 @@ jobs:
         if: steps.checkout-repository.outcome == 'success'
         uses: ./.github/actions/issue-pinned
         with:
-          GHTOKEN: $ {{ secrets.GITHUB_TOKEN }}
+          GHTOKEN: ${{ secrets.GITHUB_TOKEN }}
