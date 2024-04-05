@@ -55865,7 +55865,7 @@ function wrappy (fn, cb) {
 
 const CORE = __nccwpck_require__(2186)
 const GITHUB = __nccwpck_require__(5438)
-const { GRAPHQL } = __nccwpck_require__(5406)
+const GraphQLClient = __nccwpck_require__(5406)
 
 /**
  * The main function for the issue-pinned.
@@ -55879,7 +55879,7 @@ async function run() {
     const GHTOKEN = CORE.getInput('GHTOKEN', { required: true })
     console.log(`Token: ${GHTOKEN}`)
     const commentBody = 'This is the new comment'
-    const client = new GRAPHQL('https://api.github.com/graphql', {
+    const client = new GraphQLClient('https://api.github.com/graphql', {
       headers: { Authorization: `Bearer ${GHTOKEN}` }
     })
 
