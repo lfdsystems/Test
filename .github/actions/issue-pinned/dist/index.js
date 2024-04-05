@@ -55865,7 +55865,7 @@ function wrappy (fn, cb) {
 
 const CORE = __nccwpck_require__(2186)
 const GITHUB = __nccwpck_require__(5438)
-const GraphQLClient = __nccwpck_require__(5406)
+const { GraphQLClient } = __nccwpck_require__(5406)
 
 /**
  * The main function for the issue-pinned.

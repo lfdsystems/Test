@@ -1,6 +1,6 @@
 const CORE = require('@actions/core')
 const GITHUB = require('@actions/github')
-const GraphQLClient = require('graphql-request')
+const { GraphQLClient } = require('graphql-request')
 
 /**
  * The main function for the issue-pinned.
