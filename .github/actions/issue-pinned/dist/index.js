@@ -55877,6 +55877,7 @@ async function run() {
     const ISSUENODEID = GHPAYLOAD.issue.node_id
     const issueId = ISSUENODEID
     const GHTOKEN = CORE.getInput('GHTOKEN', { required: true })
+    console.log(`Token: ${GHTOKEN}`)
     const commentBody = 'This is the new comment'
     const client = new GraphQLClient('https://api.github.com/graphql', {
       headers: { Authorization: `Bearer ${GHTOKEN}` }
