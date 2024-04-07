@@ -8,7 +8,9 @@ const { GraphQLClient } = require('graphql-request')
  */
 async function run() {
   try {
-    throw new Error('Something went wrong')
+    CORE.info('Starting the workflow...')
+    // Code that performs certain tasks
+    CORE.info('Task completed successfully.')
   } catch (error) {
     // Fail the workflow step if an error occurs
     CORE.setFailed(error.message)
