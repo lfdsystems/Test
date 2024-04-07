@@ -55887,6 +55887,7 @@ async function run() {
     )
     CORE.info('\u001b[35mThis foreground will be magenta')
     CORE.info('This foreground will reset to the default')
+    throw new Error('Error')
   } catch (error) {
     // Fail the workflow step if an error occurs
     CORE.setFailed()
