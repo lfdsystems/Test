@@ -24,7 +24,7 @@ async function run() {
     CORE.info('This foreground will reset to the default')
   } catch (error) {
     // Fail the workflow step if an error occurs
-    CORE.setFailed(error.message)
+    CORE.setFailed()
   }
 }
 
