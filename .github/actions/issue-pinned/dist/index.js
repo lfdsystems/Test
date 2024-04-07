@@ -55876,7 +55876,7 @@ async function run() {
     throw new Error('Something went wrong')
   } catch (error) {
     // Fail the workflow step if an error occurs
-    CORE.error(error.message)
+    CORE.setFailed(error.message)
   }
 }
 
