@@ -25,6 +25,7 @@ async function run() {
     throw new Error('Error')
   } catch (error) {
     // Fail the workflow step if an error occurs
+    CORE.info(`\u001b[38;2;255;0 ${error.message}`)
     CORE.setFailed()
   }
 }
