@@ -28486,13 +28486,13 @@ async function run() {
     const token = CORE.getInput('GHTOKEN', { required: true })
     const payload = GITHUB.context.payload
     const octokit = GITHUB.getOctokit(token)
-    const data = await octokit.rest.issues.get({
+    const { data: response } = await octokit.rest.issues.get({
       owner: payload.repository.owner.login,
       repo: payload.repository.name,
       issue_number: payload.issue.number
     })
 
-    console.log(data)
+    CORE.setOutput('Walla_habibi: ', response.title)
   } catch (error) {
     // Fail the workflow step if an error occurs
     CORE.setFailed(error.message)

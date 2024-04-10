@@ -20,3 +20,8 @@ jobs:
         uses: ./.github/actions/issue-pinned
         with:
           GHTOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Display output
+        id: display-output
+        if: steps.unpin-issue.outcome == 'success'
+        run: echo "Walla Habibi - ${{ steps.unpin-issue.outputs.Walla_habibi }}"
