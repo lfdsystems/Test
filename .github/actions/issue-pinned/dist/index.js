@@ -28486,13 +28486,20 @@ async function run() {
     const token = CORE.getInput('GHTOKEN', { required: true })
     const payload = GITHUB.context.payload
     const octokit = GITHUB.getOctokit(token)
-    const { data: response } = await octokit.rest.issues.get({
-      owner: payload.repository.owner.login,
-      repo: payload.repository.name,
-      issue_number: payload.issue.number
-    })
+    const issueNodeId = payload.issue.node_id
+    const mutation = `
+      mutation UnpinIssue( $issueNodeId: ID! ){
+        unpinIssue( input: { issueId: $issueNodeId }){
+          issue{
+            title
+          }
+        }
+      }
+    `
+    const variables = { issueNodeId }
+    const graphql = octokit.graphql(mutation, variables)
 
-    CORE.setOutput('Walla_habibi: ', response.title)
+    CORE.setOutput(JSON.stringify(graphql, null, 2))
   } catch (error) {
     // Fail the workflow step if an error occurs
     CORE.setFailed(error.message)
