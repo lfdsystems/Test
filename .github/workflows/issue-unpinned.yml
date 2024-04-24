@@ -17,4 +17,4 @@ jobs:
       - name: Display output
         id: display-output
         if: steps.checkout-repository.outcome == 'success'
-        run: echo "${{ github }}"
+        run: echo "${{ toJson(github) }}"
